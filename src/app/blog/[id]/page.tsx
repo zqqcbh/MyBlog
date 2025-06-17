@@ -58,18 +58,27 @@ export default function BlogPost() {
             <ReactMarkdown 
               remarkPlugins={[remarkGfm]}
               components={{
-                h1: ({node, ...props}) => <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />,
-                h2: ({node, ...props}) => <h2 className="text-2xl font-bold mt-6 mb-3" {...props} />,
-                h3: ({node, ...props}) => <h3 className="text-xl font-bold mt-4 mb-2" {...props} />,
-                p: ({node, ...props}) => <p className="my-4 leading-relaxed" {...props} />,
-                strong: ({node, ...props}) => <strong className="font-bold" {...props} />,
-                code: ({node, inline, ...props}) => 
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                h1: (props: any) => <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                h2: (props: any) => <h2 className="text-2xl font-bold mt-6 mb-3" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                h3: (props: any) => <h3 className="text-xl font-bold mt-4 mb-2" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                p: (props: any) => <p className="my-4 leading-relaxed" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                strong: (props: any) => <strong className="font-bold" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                code: ({inline, ...props}: any) => 
                   inline ? 
                     <code className="bg-gray-100 px-1 py-0.5 rounded" {...props} /> :
                     <code className="block bg-gray-100 p-4 rounded-lg" {...props} />,
-                blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4" {...props} />,
-                ul: ({node, ...props}) => <ul className="list-disc pl-6 my-4" {...props} />,
-                ol: ({node, ...props}) => <ol className="list-decimal pl-6 my-4" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                blockquote: (props: any) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                ul: (props: any) => <ul className="list-disc pl-6 my-4" {...props} />,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                ol: (props: any) => <ol className="list-decimal pl-6 my-4" {...props} />,
               }}
             >
               {post.content}
